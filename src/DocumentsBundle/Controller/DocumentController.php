@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 class DocumentController extends Controller
 {
     public function indexAction($message = null) {
-    // Construction de la liste des documents d'un candidat vue par un candidat
+        return $this->render("@Documents/Default/index.html.twig");
     }
 
     public function indexCandidatAction($message = null) {
