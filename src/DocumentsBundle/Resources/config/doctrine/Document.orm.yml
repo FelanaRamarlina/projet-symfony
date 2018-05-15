@@ -1,0 +1,33 @@
+DocumentsBundle\Entity\Document:
+    type: entity
+    table: null
+    repositoryClass: DocumentsBundle\Repository\DocumentRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre:
+            type: string
+            length: 255
+        description:
+            type: string
+            length: 255
+        etat:
+            type: boolean
+        rubrique:
+            type: string
+            length: 255
+        version:
+            type: string
+            length: 255
+        candidat:
+            type: integer
+        path:
+            type: string
+            length: 255
+        lastCom:
+            type: integer
+    lifecycleCallbacks: {  }
