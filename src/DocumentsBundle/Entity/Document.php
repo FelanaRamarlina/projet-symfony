@@ -1,47 +1,58 @@
 <?php
 
 namespace DocumentsBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Document
  *
+ * @ORM\Entity
  * @ORM\Table(name="document")
- * @ORM\Entity(repositoryClass="DocumentsBundle\Repository\DocumentRepository)
+ * @ORM\Entity(repositoryClass="DocumentsBundle\Repository\DocumentRepository")
  */
 class Document
 {
     /**
      * @var int
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     * @ORM\Column(name="titre", type="string", length=255)
      */
     private $titre;
 
     /**
      * @var string
+     * @ORM\Column(name="description", type="string", length=255)
      */
     private $description;
 
     /**
      * @var bool
+     * @ORM\Column(name="etat", type="boolean")
      */
     private $etat;
 
     /**
      * @var string
+     * @ORM\Column(name="rubrique", type="string", length=255)
      */
     private $rubrique;
 
     /**
      * @var string
+     * @ORM\Column(name="version", type="string", length=255)
      */
     private $version;
 
     /**
      * @var int
+     * @ORM\Column(name="candidat", type="integer")
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumn(nullable=true)
      */
@@ -49,11 +60,13 @@ class Document
 
     /**
      * @var string
+     * @ORM\Column(name="path", type="string", length=255)
      */
     private $path;
 
     /**
      * @var int
+     * @ORM\Column(name="last_com", type="integer")
      */
     private $lastCom;
 
