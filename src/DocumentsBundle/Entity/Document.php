@@ -4,6 +4,9 @@ namespace DocumentsBundle\Entity;
 
 /**
  * Document
+ *
+ * @ORM\Table(name="document")
+ * @ORM\Entity(repositoryClass="DocumentsBundle\Repository\DocumentRepository)
  */
 class Document
 {
