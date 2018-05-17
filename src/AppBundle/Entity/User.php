@@ -23,6 +23,13 @@ class User extends BaseUser
      */
     private $appointment;
 
+    /**
+     * @var \isAdvisor
+     *
+     * @ORM\Column(name="isAdvisor", type="boolean")
+     */
+    protected $isAdvisor;
+
  public function __construct()
  {
  parent::__construct();
