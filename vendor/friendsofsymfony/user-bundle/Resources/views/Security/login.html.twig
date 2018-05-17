@@ -1,0 +1,16 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+{{ include('header.html.twig') }}
+    {{ include('@FOSUser/Security/login_content.html.twig') }}
+{% endblock fos_user_content %}
+
+{% block stylesheets %}
+
+   <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+   <link rel="stylesheet" type="text/css" href="{{ asset('css/docs.css') }}">
+  <script src="{{ asset('js/jquery.min.js') }}"></script>
+  <script src="{{ asset('js/bootstrap.js') }}"></script>
+  
+  
+{% endblock %}
