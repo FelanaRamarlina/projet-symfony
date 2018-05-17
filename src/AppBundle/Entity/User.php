@@ -17,6 +17,12 @@ class User extends BaseUser
  * @ORM\GeneratedValue(strategy="AUTO")
  */
  protected $id;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Appointment", inversedBy="fos_user")
+     */
+    private $appointment;
+
  public function __construct()
  {
  parent::__construct();
