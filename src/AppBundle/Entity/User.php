@@ -17,6 +17,15 @@ class User extends BaseUser
  * @ORM\GeneratedValue(strategy="AUTO")
  */
  protected $id;
+
+
+    /**
+     * @var \isAdvisor
+     *
+     * @ORM\Column(name="isAdvisor", type="boolean")
+     */
+    protected $isAdvisor;
+
  public function __construct()
  {
  parent::__construct();

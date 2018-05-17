@@ -13,6 +13,7 @@ use AncaRebeca\FullCalendarBundle\Model\FullCalendarEvent;
 class CalendarEvent extends FullCalendarEvent
 {
 
+
     /**
      * @return array
      */
