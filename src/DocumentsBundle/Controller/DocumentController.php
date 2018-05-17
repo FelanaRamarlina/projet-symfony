@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 class DocumentController extends Controller
 {
     public function indexAction($message = null) {
+        $user = $this->getUser();
         return $this->render("@Documents/Default/index.html.twig");
     }
 
@@ -37,6 +38,7 @@ class DocumentController extends Controller
     }
 
     private function getUserDocuments($candidat_id = null) {
+
     }
 
     private function createUserDocuments() {

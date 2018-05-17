@@ -1,0 +1,15 @@
+.docs-container {
+    margin-top: 30px;
+}
+
+.docs-table {
+    margin-top: 20px;
+}
+
+.table>thead {
+    background-color: lightgrey;
+}
+
+.table>tbody {
+    text-align: center;
+}
