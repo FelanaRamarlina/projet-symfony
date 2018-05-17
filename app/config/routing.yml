@@ -1,10 +1,8 @@
-messagerie:
-    resource: "@MessagerieBundle/Resources/config/routing.yml"
-    prefix:   /
-
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+# app/config/routing.yml
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
@@ -25,6 +23,3 @@ fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
 
-documents:
-    resource: "@DocumentsBundle/Resources/config/routing.yml"
-    prefix: /documents
