@@ -1,4 +1,0 @@
-documents_homepage:
-    path:     /
-    defaults: { _controller: DocumentsBundle:Document:index }
-
