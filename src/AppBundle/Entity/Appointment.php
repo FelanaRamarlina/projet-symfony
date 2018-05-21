@@ -2,30 +2,55 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Appointment
+ *
+ * @ORM\Table(name="appointment")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\AppointmentRepository")
  */
 class Appointment
 {
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="day", type="datetime")
      */
     private $day;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="hour", type="time")
      */
     private $hour;
 
     /**
      * @var bool
+     *
+     * @ORM\Column(name="isValidated", type="boolean")
      */
     private $isValidated;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="TypeAppointment", inversedBy="appointment")
+     */
+    private $typeAppointment;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="appointment")
+     */
+    private $fos_user;
 
 
     /**
@@ -37,11 +62,6 @@ class Appointment
     {
         return $this->id;
     }
-
-    /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="appointment")
-     */
-    private $idAdvisor;
 
     /**
      * Set day
