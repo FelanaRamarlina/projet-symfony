@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AncaRebeca\FullCalendarBundle\Model\FullCalendarEvent;
 
 /**
  * Appointment
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="appointment")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\AppointmentRepository")
  */
-class Appointment
+class Appointment extends FullCalendarEvent
 {
     /**
      * @var int
@@ -133,6 +134,14 @@ class Appointment
     public function getIsValidated()
     {
         return $this->isValidated;
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        // TODO: Implement toArray() method.
     }
 }
 
