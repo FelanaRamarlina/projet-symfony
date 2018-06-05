@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('MessagerieBundle:Default:index.html.twig');
+        return $this->render('@Messagerie/Default/index.html.twig');
     }
 }
