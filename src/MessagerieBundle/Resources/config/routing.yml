@@ -1,3 +1,7 @@
 messagerie_homepage:
     path:     /
     defaults: { _controller: MessagerieBundle:Default:index }
+
+messagerie_new_messages:
+    path: /new
+    defaults: { _controller: MessagerieBundle:Default:new }

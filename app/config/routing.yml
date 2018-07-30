@@ -1,6 +1,6 @@
 messagerie:
     resource: "@MessagerieBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /messages
 
 app:
     resource: '@AppBundle/Controller/'
