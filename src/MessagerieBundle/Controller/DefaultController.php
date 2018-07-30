@@ -22,11 +22,17 @@ class DefaultController extends Controller
     }
 
     public function messageAction(){
-        $role = "ROLE_ADMIN ";
+        $role = $this->getUser()->getRoles()[0];
+
+        print_r($this->getUser()->getId());
 
         if($role == "ROLE_SUPER_ADMIN " || $role == "ROLE_ADMIN "){
-            $this->responseAction();
+            return $this->render('@Messagerie/Default/messagesAdmin.html.twig');
+        } else {
+            return $this->render('@Messagerie/Default/messages.html.twig');
         }
+
+
 
     }
 
