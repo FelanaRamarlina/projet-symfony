@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Messagerie
  *
  * @ORM\Table(name="messagerie")
- * @ORM\Entity(repositoryClass="MessagerieBundle\Repository\MessagerieRepository")
+ * @ORM\Entity(repositoryClass="MessagerieBundle\Repository\MessagesRepository")
  */
 class Messagerie
 {
@@ -48,6 +48,13 @@ class Messagerie
      * @ORM\Column(name="corps", type="text")
      */
     private $corps;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="readMessage", type="boolean", options={"default":false})
+     */
+    private $readMessage;
 
 
     /**
@@ -154,5 +161,28 @@ class Messagerie
     public function getCorps()
     {
         return $this->corps;
+    }
+    /**
+     * Set read
+     *
+     * @param boolean $readMessage
+     *
+     * @return Messagerie
+     */
+    public function setReadMessage($readMessage)
+    {
+        $this->readMessage = $readMessage;
+
+        return $this;
+    }
+
+    /**
+     * Get readMessage
+     *
+     * @return boolean
+     */
+    public function getReadMessage()
+    {
+        return $this->readMessage;
     }
 }

@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -24,7 +25,16 @@ class DefaultController extends Controller
     public function messageAction(){
         $role = $this->getUser()->getRoles()[0];
 
-        print_r($this->getUser()->getId());
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('MessagerieBundle:Messagerie')
+        ;
+        $result = $repository->findBy(
+            array('user'=>$this->getUser()->getId())
+        );
+
+        print_r($result[0]->getDestinataire());
 
         if($role == "ROLE_SUPER_ADMIN " || $role == "ROLE_ADMIN "){
             return $this->render('@Messagerie/Default/messagesAdmin.html.twig');
@@ -50,7 +60,12 @@ class DefaultController extends Controller
         $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $message);
 
         $formBuilder
-            ->add('user', TextType::class)
+            ->add('user', HiddenType::class, array(
+                'data' => $this->getUser()->getId(),
+            ))
+            ->add('readMessage', HiddenType::class, array(
+                'data' => 0,
+            ))
             ->add('destinataire', TextType::class)
             ->add('sujet', TextType::class)
             ->add('corps',TextareaType::class)
