@@ -6,8 +6,6 @@ app:
     resource: '@AppBundle/Controller/'
     type: annotation
 
-# app/config/routing.yml
-
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
@@ -29,3 +27,8 @@ fos_user_change_password:
 
 ancarebeca_fullcalendar:
     resource: "@FullCalendarBundle/Resources/config/routing.yml"
+
+documents:
+    resource: "@DocumentsBundle/Resources/config/routing.yml"
+    prefix: /documents
+
