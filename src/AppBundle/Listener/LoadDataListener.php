@@ -9,7 +9,7 @@
 namespace AppBundle\Listener;
 
 use AncaRebeca\FullCalendarBundle\Model\FullCalendarEvent;
-use AppBundle\Entity\CalendarEvent as MyCustomEvent;
+use AppBundle\Entity\Appointment as MyCustomEvent;
 
 class LoadDataListener
 {
@@ -28,5 +28,6 @@ class LoadDataListener
 
         $calendarEvent->addEvent(new MyCustomEvent('Event Title 1', new \DateTime()));
         $calendarEvent->addEvent(new MyCustomEvent('Event Title 2', new \DateTime()));
+        $calendarEvent->addEvent(new MyCustomEvent('Hello World', new \DateTime()));
     }
 }
