@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace CalendarBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Appointment
  *
  * @ORM\Table(name="appointment")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\AppointmentRepository")
+ * @ORM\Entity(repositoryClass="CalendarBundle\Repository\AppointmentRepository")
  */
 class Appointment
 {
@@ -24,7 +24,7 @@ class Appointment
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="day", type="datetime")
+     * @ORM\Column(name="day", type="date")
      */
     private $day;
 
@@ -48,10 +48,14 @@ class Appointment
     private $typeAppointment;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="appointment")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="appointment")
      */
-    private $fos_user;
+    private $candidat;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="appointment")
+     */
+    private $conseiller;
 
     /**
      * Get id
@@ -134,5 +138,54 @@ class Appointment
     {
         return $this->isValidated;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTypeAppointment()
+    {
+        return $this->typeAppointment;
+    }
+
+    /**
+     * @param mixed $typeAppointment
+     */
+    public function setTypeAppointment($typeAppointment)
+    {
+        $this->typeAppointment = $typeAppointment;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCandidat()
+    {
+        return $this->candidat;
+    }
+
+    /**
+     * @param mixed $candidat
+     */
+    public function setCandidat($candidat)
+    {
+        $this->candidat = $candidat;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConseiller()
+    {
+        return $this->conseiller;
+    }
+
+    /**
+     * @param mixed $conseiller
+     */
+    public function setConseiller($conseiller)
+    {
+        $this->conseiller = $conseiller;
+    }
+
 }
 

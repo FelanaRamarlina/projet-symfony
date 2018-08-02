@@ -19,16 +19,21 @@ class User extends BaseUser
  protected $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Appointment", inversedBy="fos_user")
-     */
-    private $appointment;
-
-    /**
      * @var \isAdvisor
      *
      * @ORM\Column(name="isAdvisor", type="boolean")
      */
     protected $isAdvisor;
+
+    /**
+     * @ORM\OneToMany(targetEntity="CalendarBundle\Entity\Appointment", mappedBy="fos_user")
+     */
+    private $candidat;
+
+    /**
+     * @ORM\OneToMany(targetEntity="CalendarBundle\Entity\Appointment", mappedBy="fos_user")
+     */
+    private $conseiller;
 
  public function __construct()
  {

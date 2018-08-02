@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Repository;
+namespace CalendarBundle\Repository;
 
 /**
  * TypeAppointmentRepository

@@ -1,0 +1,7 @@
+calendar_homepage:
+    path:     /calendar
+    defaults: { _controller: CalendarBundle:Calendar:index}
+
+calendar_rdv:
+    path:     /rdv
+    defaults: { _controller: CalendarBundle:Calendar:add}
